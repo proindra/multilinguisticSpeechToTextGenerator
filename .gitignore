@@ -18,6 +18,10 @@ build/
 *.m4a
 *.ogg
 
+# Generated output
+realtime_translator.txt
+speech.mp3
+
 # HuggingFace model cache
 .cache/
 

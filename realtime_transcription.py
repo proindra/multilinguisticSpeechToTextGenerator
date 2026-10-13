@@ -29,7 +29,8 @@ audio_buffer = []
 # Model setup: large-v3 on CUDA
 model = WhisperModel(
     # "medium.en",
-    "large-v3-turbo",
+    language="en",
+    model_size="large-v3-turbo",
     device="cuda",
     compute_type="float16"
 )
