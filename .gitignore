@@ -1,0 +1,33 @@
+# Conda / virtual environment
+sevenv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Audio files
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.ogg
+
+# HuggingFace model cache
+.cache/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,3 @@
+faster-whisper
+sounddevice
+nvidia-cublas-cu12
