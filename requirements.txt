@@ -1,3 +1,4 @@
-faster-whisper
-sounddevice
-nvidia-cublas-cu12
+faster-whisper==1.2.1
+sounddevice==0.5.6
+nvidia-cublas-cu12==12.9.2.10
+edge-tts==7.3.0

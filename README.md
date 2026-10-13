@@ -2,15 +2,17 @@
 
 > Built on top of [faster-whisper](https://github.com/SYSTRAN/faster-whisper) — a reimplementation of OpenAI's Whisper using [CTranslate2](https://github.com/OpenNMT/CTranslate2), which is up to 4x faster than the original Whisper with lower memory usage.
 
-Real-time microphone transcription and audio file transcription using [faster-whisper](https://github.com/SYSTRAN/faster-whisper) on CUDA GPU.
+Real-time microphone transcription, audio file transcription, and text-to-speech using [faster-whisper](https://github.com/SYSTRAN/faster-whisper) and [edge-tts](https://github.com/rany2/edge-tts).
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `realTimeTranscription.py` | Live microphone transcription using CUDA |
-| `fromAudioFile.py` | Transcribe a local audio file using CPU |
-| `requirements.txt` | Python dependencies |
+| `realtime_transcription.py` | Live microphone transcription using CUDA |
+| `transcribe_audio_file.py` | Transcribe a local audio file using CPU |
+| `text_to_speech.py` | Convert text from `input.txt` to speech using Microsoft Edge TTS |
+| `input.txt` | Input text file for TTS (supports Hindi + English) |
+| `requirements.txt` | Python dependencies with pinned versions |
 
 ## Requirements
 
@@ -36,21 +38,30 @@ Real-time microphone transcription and audio file transcription using [faster-wh
 
 ### Real-time microphone transcription
 ```bash
-python realTimeTranscription.py
+python realtime_transcription.py
 ```
 - Listens to your microphone and transcribes every 3 seconds
 - Uses `large-v3-turbo` model on CUDA with VAD filtering
+- Auto-detects language
 - Press `Ctrl+C` to stop
 
 ### Transcribe an audio file
 ```bash
-python fromAudioFile.py
+python transcribe_audio_file.py
 ```
 - Transcribes `audio.mp3` using `medium.en` model on CPU
 
+### Text to speech
+```bash
+python text_to_speech.py
+```
+- Reads text from `input.txt` (supports Hindi + English mixed text)
+- Uses Microsoft Edge TTS with `hi-IN-SwaraNeural` Hindi voice
+- Saves output to `speech.mp3`
+
 ## Configuration
 
-In `realTimeTranscription.py`:
+### `realtime_transcription.py`
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -59,3 +70,21 @@ In `realTimeTranscription.py`:
 | `model` | `large-v3-turbo` | Whisper model size |
 | `language` | `None` | Set to `"en"` to skip auto language detection |
 | `beam_size` | `3` | Higher = more accurate, slower |
+
+### `text_to_speech.py`
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `voice` | `hi-IN-SwaraNeural` | Edge TTS voice |
+| `rate` | `+0%` | Speech rate adjustment |
+| `output` | `speech.mp3` | Output audio file |
+
+## File Naming Convention
+
+All Python files use `snake_case` naming:
+
+| Old Name | New Name |
+|----------|----------|
+| `realTimeTranscription.py` | `realtime_transcription.py` |
+| `fromAudioFile.py` | `transcribe_audio_file.py` |
+| `fromTextToSpeech.py` | `text_to_speech.py` |
