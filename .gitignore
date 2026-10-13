@@ -17,6 +17,7 @@ build/
 *.flac
 *.m4a
 *.ogg
+!audio.mp3
 
 # Generated output
 realtime_translator.txt

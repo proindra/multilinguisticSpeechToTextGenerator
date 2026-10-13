@@ -1,4 +1,4 @@
-# Real-Time Speech Transcription with Faster-Whisper
+# 🎙️ Real-Time Speech Transcription & Translation with Faster-Whisper
 
 > Built on top of [faster-whisper](https://github.com/SYSTRAN/faster-whisper) — a reimplementation of OpenAI's Whisper using [CTranslate2](https://github.com/OpenNMT/CTranslate2), which is up to 4x faster than the original Whisper with lower memory usage.
 
